@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
     compile 'org.scala-lang:scala-library:2.11.1'
+
 }
 
 sourceSets {
@@ -23,3 +24,8 @@ sourceSets {
     }
 }
 
+dependencies {
+    compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version: '2.4.0'
+    compile group: 'org.scala-lang', name: 'scala-library', version: '2.11.6'
+    compile group: 'org.mongodb', name: 'casbah_2.11', version: '2.8.2'
+}

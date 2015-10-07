@@ -16,6 +16,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Gradle: org.scala-lang:scala-library:2.11.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.typesafe:config:1.3.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.typesafe.akka:akka-actor_2.11:2.4.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.scala-lang:scala-library:2.11.7" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.mongodb:casbah-commons_2.11:2.8.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.mongodb:casbah-core_2.11:2.8.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.mongodb:casbah-query_2.11:2.8.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.mongodb:casbah-gridfs_2.11:2.8.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.github.nscala-time:nscala-time_2.11:1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.slf4j:slf4j-api:1.6.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.mongodb:mongo-java-driver:2.13.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: joda-time:joda-time:2.3" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.joda:joda-convert:1.2" level="project" />
   </component>
 </module>

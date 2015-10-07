@@ -1,5 +1,5 @@
 package app
 
-class Event {
+class Event
 
-}
+case class TextEvent(message:String) extends Event

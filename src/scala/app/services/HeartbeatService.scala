@@ -3,9 +3,6 @@ import app.Event
 
 trait HeartbeatService  {
 
-  def handleHeartbeat(event:Event):String = {
-    Status.HEALTHY
-  }
 
 }
 
