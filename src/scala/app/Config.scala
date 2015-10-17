@@ -6,7 +6,7 @@ import com.typesafe.config.ConfigFactory
 
 object Config {
 
-  private val conf = ConfigFactory.parseFile(new File("src/scala/app/conf/application.conf"))
+  private val conf = ConfigFactory.defaultApplication()
 
   def get(key:String) = conf.getConfig(key)
 

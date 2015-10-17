@@ -14,9 +14,9 @@ dependencies {
 sourceSets {
     main {
         scala {
-            srcDirs  = ['/src/resources', 'src/scala']
+            srcDirs  = ['src/scala']
         }
-
+        resources.srcDirs = ["src/resources"]
     }
     test {
         scala {
