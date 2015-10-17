@@ -25,5 +25,5 @@ object ServiceType extends Enumeration  {
   type ServiceType = Value
   val DISCOVERY_SHIP = Value("DISCOVERY_SHIP")
   val HEARTBEAT_SHIP = Value("HEARTBEAT_SHIP")
-  val SERVICE_REGISTRY = Value("SERVICE_REGISTRY")
+  val SERVICE_REGISTRY = Value("SERVICE_REGISTRY_")
 }

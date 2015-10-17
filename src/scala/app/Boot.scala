@@ -5,8 +5,9 @@ import java.io.File
 import com.mongodb.casbah.Imports._
 
 import akka.actor._
-import app.services.{ListServicesEvent, RegisterServiceEvent, ServiceRegister}
+import app.services._
 import com.typesafe.config.ConfigFactory
+import sun.plugin2.message.HeartbeatMessage
 
 object Boot extends App {
 
@@ -15,12 +16,13 @@ object Boot extends App {
 
 
   val registerActor = RootActor.system.actorOf(Props[ServiceRegister], "ServiceRegister")
-  val eventStream =  new EventStream
 
-  eventStream.subscribe(registerActor, "greetings")
+  val heartbeatShip = RootActor.system.actorOf(Props[HeartbeatShip], "HeartbeatShip")
 
-  registerActor ! RegisterServiceEvent("Main", "12346")
-  registerActor ! ListServicesEvent()
+  registerActor ! RegisterServiceEvent(heartbeatShip, "HeartBeat")
+
+
+  heartbeatShip.tell(StartService(), registerActor)
 
 }
 
