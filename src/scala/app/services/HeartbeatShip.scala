@@ -6,6 +6,7 @@ import app.features.ServiceType.ServiceType
 import app.features.{ServiceType, Service}
 import app.models.Address
 import app.{RootActor, Event}
+import com.typesafe.scalalogging.LazyLogging
 
 import scala.collection.mutable
 import scala.concurrent.duration.FiniteDuration
@@ -13,7 +14,7 @@ import scala.concurrent.duration._
 
 import RootActor.system.dispatcher
 
-class HeartbeatShip extends Service with HeartbeatService {
+class HeartbeatShip extends Service with HeartbeatService with LazyLogging {
   override def SERVICE_TYPE: ServiceType = ServiceType.HEARTBEAT_SHIP
   override def SERVICE_ADDRESS: Address = Address("127.0.0.1", 8081)
 
@@ -37,7 +38,9 @@ class HeartbeatShip extends Service with HeartbeatService {
       waitingForKeys.remove(key)
     }
     case HeartBeatPing(key) => sender ! HeartBeatPong(key)
-    case ListLostServices() => for (service <- waitingForKeys.values) println("Have not received PONG from" + service)
+    case ListLostServices() =>
+      if (waitingForKeys.size == 0) logger.debug("All services healthy")
+      for (service <- waitingForKeys.values) logger.warn("Have not received PONG from " + service)
 
 
   }

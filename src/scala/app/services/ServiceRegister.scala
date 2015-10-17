@@ -20,12 +20,15 @@ class ServiceRegister extends Service with MongoTrait {
   lazy val serviceCol = MongoClient(mongoIP, mongoPort)(appName)(SERVICE_TYPE.toString)
 
   override def receive = {
-    case RegisterServiceEvent(service, id) => serviceCol.insert(MongoDBObject("service"->id,"path"->service.path.toString))
-    case ListServicesEvent() => {
+    case RegisterServiceEvent(service, id) =>
+      serviceCol.insert(MongoDBObject("service"->id,"path"->service.path.toString))
+      println("Registered "+service.toString())
+
+    case ListServicesEvent() =>
       val toList = serviceCol.find("path" $exists true)
       val strings: Iterator[String] = for (x <- toList) yield x.getAsOrElse[String]("path", "").toString
       sender ! ListServicesResponse(strings)
-    }
+
     case HeartBeatPing(key) => sender ! HeartBeatPong(key)
   }
 
