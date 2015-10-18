@@ -1,0 +1,17 @@
+language: scala
+scala:
+   - 2.10.4
+   - 2.11.2
+branches:
+  only:
+    - master
+notifications:
+  email:
+    recipients:
+      - art.vancans@gmail.com
+jdk:
+  - oraclejdk8
+services:
+  - mongodb
+
+script: sbt test

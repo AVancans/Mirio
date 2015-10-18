@@ -6,14 +6,9 @@ import akka.actor._
 import app.services._
 
 import com.typesafe.scalalogging.{Logger, LazyLogging}
-import org.apache.log4j.xml.DOMConfigurator
 
 
 object Boot extends App  {
-
-//  DOMConfigurator.configure("log4j.xml");
-
-  val a = ClassLoader.getSystemResource("/log4j.xml")
 
   println("App ready!")
 
